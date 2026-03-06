@@ -23,6 +23,19 @@ module.exports = {
         use: 'ts-loader',
         exclude: /node_modules/,
       },
+      {
+        test: /\.css$/,
+        use: [
+          {
+            loader: "css-loader",
+            options: {
+              exportType: "string",
+              esModule: true,
+            },
+          }
+        ],
+        exclude: /node_modules/,
+      },
     ],
   },
 };
