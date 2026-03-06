@@ -7,11 +7,11 @@
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,
-    "outDir": "dist",
-    "rootDir": "src",
+    "outDir": "scripts/dist",
+    "rootDir": "scripts/src",
     "strict": true,
     "esModuleInterop": true,
     "types": ["@types/node"]
   },
-  "include": ["src"]
+  "include": ["scripts/src"]
 }
