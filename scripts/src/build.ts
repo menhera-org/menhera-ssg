@@ -1,6 +1,9 @@
 
 import * as process from 'node:process';
 import * as child_process from 'node:child_process';
+import * as fs from 'node:fs';
+import * as path from 'node:path';
+import { globSync } from 'glob';
 
 export {};
 
@@ -25,3 +28,13 @@ process.chdir('../..');
 process.chdir('./packages/runtime-sw');
 runBuild();
 process.chdir('../..');
+
+const ASSET_DIR = './packages/ssg/assets';
+fs.rmSync(ASSET_DIR, { recursive: true, force: true });
+fs.mkdirSync(ASSET_DIR, { recursive: true });
+
+const assets = globSync('./packages/runtime-*/dist/*');
+
+for (const assetPath of assets) {
+  fs.copyFileSync(assetPath, path.join(ASSET_DIR, path.basename(assetPath)));
+}
