@@ -1,0 +1,7 @@
+{
+  "name": "menhera-ssg-workspace",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ]
+}
