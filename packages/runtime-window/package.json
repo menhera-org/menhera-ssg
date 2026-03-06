@@ -11,6 +11,15 @@
     "build": "rimraf dist ; webpack --config webpack.config.cjs"
   },
   "devDependencies": {
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "css-loader": "^7"
+  },
+  "dependencies": {
+    "@reduxjs/toolkit": "^2.2.1",
+    "react": "^19",
+    "react-dom": "^19",
+    "react-redux": "^9.1.0"
   }
 }
