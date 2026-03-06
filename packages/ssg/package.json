@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "description": "Static site generator (SSG) with batteries included",
   "type": "module",
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
   "license": "Apache-2.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

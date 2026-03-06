@@ -4,6 +4,10 @@
   "description": "Common files for @menhera/ssg",
   "license": "Apache-2.0",
   "type": "module",
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
