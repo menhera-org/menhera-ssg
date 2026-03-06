@@ -4,11 +4,13 @@ const path = require('node:path');
 module.exports = {
   mode: 'production',
   target: 'webworker',
-  entry: './src/index.ts',
+  entry: {
+    'menhera-worker': './src/index.ts',
+  },
   devtool: [{ type: "all", use: "source-map" }],
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'menhera-worker.[contenthash].js',
+    filename: '[name].[contenthash].js',
     clean: true,
   },
   resolve: {

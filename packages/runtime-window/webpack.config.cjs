@@ -4,11 +4,13 @@ const path = require('node:path');
 module.exports = {
   mode: 'production',
   target: 'web',
-  entry: './src/index.ts',
+  entry: {
+    'menhera-window': './src/index.ts',
+  },
   devtool: [{ type: "all", use: "source-map" }],
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'menhera-window.[contenthash].js',
+    filename: '[name].[contenthash].js',
     clean: true,
   },
   resolve: {
