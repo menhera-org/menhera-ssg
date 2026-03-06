@@ -5,6 +5,7 @@ module.exports = {
   mode: 'production',
   target: 'webworker',
   entry: './src/index.ts',
+  devtool: [{ type: "all", use: "source-map" }],
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'menhera-sw.[contenthash].js',
