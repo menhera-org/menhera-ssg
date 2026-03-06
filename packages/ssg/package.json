@@ -4,6 +4,11 @@
   "description": "Static site generator (SSG) with batteries included",
   "type": "module",
   "private": false,
+  "author": "metastable-void",
+  "bugs": {
+    "url": "https://github.com/menhera-org/menhera-ssg/issues"
+  },
+  "homepage": "https://github.com/menhera-org/menhera-ssg#readme",
   "publishConfig": {
     "access": "public"
   },

@@ -8,6 +8,11 @@
   "publishConfig": {
     "access": "public"
   },
+  "author": "metastable-void",
+  "bugs": {
+    "url": "https://github.com/menhera-org/menhera-ssg/issues"
+  },
+  "homepage": "https://github.com/menhera-org/menhera-ssg#readme",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
