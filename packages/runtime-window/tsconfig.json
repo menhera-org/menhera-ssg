@@ -9,8 +9,7 @@
     "rootDir": "src",
     "strict": true,
     "esModuleInterop": true,
-    "jsx": "react",
-    "rewriteRelativeImportExtensions": true
+    "jsx": "react"
   },
   "include": ["src"]
 }

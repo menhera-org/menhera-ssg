@@ -5,7 +5,7 @@ module.exports = {
   mode: 'production',
   target: 'web',
   entry: {
-    'menhera-window': './src/index.ts',
+    'menhera-window': './src/index.tsx',
   },
   devtool: [{ type: "all", use: "source-map" }],
   output: {
@@ -14,12 +14,12 @@ module.exports = {
     clean: true,
   },
   resolve: {
-    extensions: ['.ts', '.js'],
+    extensions: ['.tsx', '.ts', '.js'],
   },
   module: {
     rules: [
       {
-        test: /\.ts$/,
+        test: /\.tsx?$/,
         use: 'ts-loader',
         exclude: /node_modules/,
       },
