@@ -2,13 +2,14 @@
   "compilerOptions": {
     "target": "ES2024",
     "lib": ["WebWorker", "ES2024"],
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
+    "module": "es2022",
+    "moduleResolution": "bundler",
     "sourceMap": true,
     "outDir": "dist",
     "rootDir": "src",
     "strict": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "rewriteRelativeImportExtensions": true
   },
   "include": ["src"]
 }

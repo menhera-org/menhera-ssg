@@ -2,13 +2,15 @@
   "compilerOptions": {
     "target": "ES2024",
     "lib": ["DOM", "DOM.Iterable", "ES2024"],
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
+    "module": "es2022",
+    "moduleResolution": "bundler",
     "sourceMap": true,
     "outDir": "dist",
     "rootDir": "src",
     "strict": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "jsx": "react",
+    "rewriteRelativeImportExtensions": true
   },
   "include": ["src"]
 }
