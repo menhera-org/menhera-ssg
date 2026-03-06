@@ -38,3 +38,8 @@ const assets = globSync('./packages/runtime-*/dist/*');
 for (const assetPath of assets) {
   fs.copyFileSync(assetPath, path.join(ASSET_DIR, path.basename(assetPath)));
 }
+
+// SSG
+process.chdir('./packages/ssg');
+runBuild();
+process.chdir('../..');

@@ -5,6 +5,9 @@
   "type": "module",
   "private": false,
   "author": "metastable-void",
+  "bin": {
+    "menhera-ssg": "dist/bin/menhera-ssg.js"
+  },
   "bugs": {
     "url": "https://github.com/menhera-org/menhera-ssg/issues"
   },
