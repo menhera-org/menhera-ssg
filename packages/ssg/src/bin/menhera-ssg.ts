@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import {micromark} from 'micromark';
 import {gfmHtml, gfm} from 'micromark-extension-gfm';
 import {frontmatter, frontmatterHtml} from 'micromark-extension-frontmatter';
