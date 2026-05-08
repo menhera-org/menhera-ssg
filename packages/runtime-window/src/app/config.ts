@@ -37,6 +37,7 @@ export interface SiteShortcut {
   icon: string;
   title: string;
   url: string;
+  selected?: boolean;
 }
 
 export interface Config {

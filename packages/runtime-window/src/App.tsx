@@ -53,7 +53,7 @@ export const App = () => {
             {
               config.shortcuts.map(
                 shortcut =>
-                  <ShortcutItem selected={false} href={shortcut.url} icon={shortcut.icon} text={shortcut.title} />
+                  <ShortcutItem selected={!!(shortcut.selected ?? false)} href={shortcut.url} icon={shortcut.icon} text={shortcut.title} />
               )
             }
           </>

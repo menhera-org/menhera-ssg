@@ -37,7 +37,7 @@
     }
   },
   "shortcuts": [
-    {"icon":"business", "title": "CORP", "url":"https://www.menhera.or.jp/"},
+    {"icon":"business", "title": "CORP", "url":"https://www.menhera.or.jp/", "selected": true},
     {"icon":"public", "title": "NOC", "url":"https://www.menhera.ad.jp/"},
     {"icon":"work", "title": "Projects", "url":"https://www.menhera.org/"}
   ]
