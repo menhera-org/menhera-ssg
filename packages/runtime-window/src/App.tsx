@@ -35,6 +35,7 @@ export const App = () => {
           </div>
         </div>
         <div id="app-top-bar-main">
+          {config.site_config.site_name}
         </div>
       </div>
       <ScrollBox id="app-main" onScrollOffsetChange={(offset) => consoleSlice.actions.scrollTo({ offset })} scrollOffset={scrollOffset} scrollOrigin='start'>

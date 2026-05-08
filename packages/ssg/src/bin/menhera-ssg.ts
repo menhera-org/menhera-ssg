@@ -45,6 +45,15 @@ const publicFiles = globSync('./public/**/*', { nodir: true });
 fs.rmSync(DIST_DIR, { recursive: true, force: true });
 fs.mkdirSync(DIST_DIR, { recursive: true });
 
+const nojekyllPath = path.join(DIST_DIR, '.nojekyll');
+fs.writeFileSync(nojekyllPath, '');
+console.log('written: ', nojekyllPath);
+if (fs.existsSync('./CNAME')) {
+  const destPath = path.join(DIST_DIR, 'CNAME');
+  fs.copyFileSync('./CNAME', destPath);
+  console.log('copied: ', destPath);
+}
+
 for (const file of publicFiles) {
   const relativePath = path.relative('./public', file);
   const destPath = path.join(DIST_DIR, relativePath);
@@ -87,7 +96,7 @@ function compileMarkdown(source: string, path: string) {
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>${encode(metadata.title)} | ${encode(config.site_config.site_short_name)}</title>
+<title>${encode(metadata.title)} | ${encode(config.site_config.site_name)}</title>
 <link rel="icon" href="${encode(config.site_config.favicon_url)}">
 <meta name="robots" content="${(metadata.is404 ?? false) ? 'noindex, nofollow' : 'index, follow'}" />
 <meta property="og:title" content="${encode(metadata.title ?? '')}" />

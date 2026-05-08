@@ -1,8 +1,8 @@
 {
   "site_config": {
     "favicon_url": "/icon.png",
-    "branding_logo_url": "/branding.svg",
-    "site_name": "生活情報基盤研究機構 (Menhera)",
+    "branding_logo_url": "/branding.png",
+    "site_name": "一般社団法人生活情報基盤研究機構",
     "site_short_name": "Menhera",
     "site_slogan": "ひとりひとりに力満ちる未来へ",
     "base_url": "https://www.menhera.or.jp/"

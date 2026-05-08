@@ -61,10 +61,12 @@ input, button, textarea, select {
   flex-direction: row;
   min-inline-size: 0;
   overflow: hidden;
+  padding-inline: .5rem;
+  text-align: end;
 }
 
 #app-top-bar-side {
-  flex-shrink: 1;
+  /* flex-shrink: 1; */
   flex-grow: 1;
   min-inline-size: 0;
   display: flex;
@@ -80,7 +82,6 @@ input, button, textarea, select {
   flex-direction: row;
   box-sizing: border-box;
   min-inline-size: 0;
-  flex: 1;
 }
 
 #app-top-bar-branding-logo {
@@ -88,6 +89,7 @@ input, button, textarea, select {
   max-block-size: 2.5rem;
   max-inline-size: 12rem;
   margin-inline-end: .5rem;
+  min-block-size: 2rem;
 }
 
 #app-top-bar-branding-title {
