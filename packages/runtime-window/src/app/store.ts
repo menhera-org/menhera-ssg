@@ -3,6 +3,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import { drawerSlice } from '../ui/drawer';
 import { directionSlice } from '../ui/direction';
 import { consoleSlice } from '../ui/console';
+import { configSlice } from '../ui/config';
 import { useDispatch } from 'react-redux';
 
 export const store = configureStore({
@@ -10,6 +11,7 @@ export const store = configureStore({
     drawer: drawerSlice.reducer,
     direction: directionSlice.reducer,
     console: consoleSlice.reducer,
+    config: configSlice.reducer,
   }
 });
 

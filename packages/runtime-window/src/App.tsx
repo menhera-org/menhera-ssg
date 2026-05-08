@@ -15,6 +15,7 @@ export const App = () => {
   const drawerIsOpen = useSelector((state: RootState) => state.drawer.open) ?? defaultDrawerOpen;
   const direction = useSelector((state: RootState) => state.direction.direction);
   const scrollOffset = useSelector((state: RootState) => state.console.scrollOffset);
+  const config = useSelector((state: RootState) => state.config);
   const dispatch = useAppDispatch();
   useEffect(() => {
     dispatch(drawerSlice.actions.unsetDrawerState());
@@ -30,7 +31,7 @@ export const App = () => {
         <div id="app-top-bar-side">
           <DrawerToggleButton />
           <div id="app-top-bar-branding">
-            <img id="app-top-bar-branding-logo" src="/image.png" alt="logo"/>
+            <img id="app-top-bar-branding-logo" src={config.site_config.branding_logo_url} alt="logo"/>
           </div>
         </div>
         <div id="app-top-bar-main">
@@ -40,15 +41,24 @@ export const App = () => {
         <div id="app-main-inner">
           <slot name="main"></slot>
         </div>
+        <footer id="app-main-footer">
+          <slot name="footer"></slot>
+        </footer>
       </ScrollBox>
       <div id="app-overlay" onClick={() => dispatch(drawerSlice.actions.closeDrawer())}></div>
       <div id="app-drawer">
         <div id="app-drawer-shortcuts">
-          <ShortcutItem selected={true} href="/" icon="home" text="Home" />
-          <ShortcutItem selected={false} href="#" icon="forum" text="Forum" />
+          <>
+            {
+              config.shortcuts.map(
+                shortcut =>
+                  <ShortcutItem selected={false} href={shortcut.url} icon={shortcut.icon} text={shortcut.title} />
+              )
+            }
+          </>
         </div>
         <div id="app-drawer-navigation">
-          <h1 id="app-drawer-heading">JPhG</h1>
+          <h1 id="app-drawer-heading">{config.site_config.site_short_name}</h1>
           <slot name="nav"></slot>
         </div>
       </div>

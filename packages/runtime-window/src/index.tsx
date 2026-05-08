@@ -25,11 +25,37 @@ document.adoptedStyleSheets = [
   createStyleSheet(rootCss),
 ];
 
-shadowRoot.adoptedStyleSheets = [
-  varsToStyleSheet(config.css_vars),
-  createStyleSheet(commonCss),
-  createStyleSheet(css),
-];
+if ('light' in config.themes && 'dark' in config.themes) {
+  const lightVars = config.themes.light;
+  const darkVars = config.themes.dark;
+  const mql = window.matchMedia('(prefers-color-scheme: dark)');
+  const onChange = (matches: boolean) => {
+    if (matches) {
+      shadowRoot.adoptedStyleSheets = [
+        varsToStyleSheet(config.css_vars),
+        varsToStyleSheet(darkVars),
+        createStyleSheet(commonCss),
+        createStyleSheet(css),
+      ];
+    } else {
+      shadowRoot.adoptedStyleSheets = [
+        varsToStyleSheet(config.css_vars),
+        varsToStyleSheet(lightVars),
+        createStyleSheet(commonCss),
+        createStyleSheet(css),
+      ];
+    }
+  };
+  onChange(mql.matches);
+  mql.onchange = () => onChange(mql.matches);
+} else {
+  shadowRoot.adoptedStyleSheets = [
+    varsToStyleSheet(config.css_vars),
+    createStyleSheet(commonCss),
+    createStyleSheet(css),
+  ];
+}
+
 
 const root = createRoot(rootElement);
 root.render(
@@ -49,3 +75,11 @@ declare global {
 }
 
 globalThis.debugUtils = _debugUtils;
+
+if ('serviceWorker' in navigator) {
+  window.addEventListener('DOMContentLoaded', function () {
+    navigator.serviceWorker.register('/menhera-sw.js', { scope: '/' }).catch(function (err) {
+      console.error('ServiceWorker registration failed:', err);
+    });
+  });
+}

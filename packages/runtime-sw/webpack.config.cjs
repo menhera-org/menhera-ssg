@@ -10,7 +10,7 @@ module.exports = {
   devtool: [{ type: "all", use: "source-map" }],
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name].[contenthash].js',
+    filename: '[name].js',
     clean: true,
   },
   resolve: {
