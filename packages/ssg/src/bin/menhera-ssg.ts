@@ -89,6 +89,7 @@ function compileMarkdown(source: string, path: string) {
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>${encode(metadata.title)} | ${encode(config.site_config.site_short_name)}</title>
 <link rel="icon" href="${encode(config.site_config.favicon_url)}">
+<meta name="robots" content="${(metadata.is404 ?? false) ? 'noindex, nofollow' : 'index, follow'}" />
 <meta property="og:title" content="${encode(metadata.title ?? '')}" />
 <meta property="og:locale" content="${encode(metadata.lang ?? 'en')}" />
 <meta name="description" content="${encode(metadata.description)}" />
@@ -106,6 +107,7 @@ ${JSON.stringify(config)}
 </head>
 <body>
 <main id="main" slot="main">
+<h1 id="page-heading">${encode(metadata.title)}</h1>
 ${content}
 </main>
 <nav id="nav" slot="nav">

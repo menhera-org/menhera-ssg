@@ -4,6 +4,7 @@ export interface MenheraSsgFrontmatter {
   description?: string;
   lang?: string;
   eye_catch_image?: string;
+  is404?: boolean;
 }
 
 

@@ -1,4 +1,9 @@
 
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
 :root, body, #root, #app {
   width: 100%;
   height: 100%;

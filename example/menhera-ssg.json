@@ -18,7 +18,7 @@
       "--theme-main-background-color": "#f5f5f5",
       "--theme-highlight-background-color": "#ffffff",
       "--theme-accent-color": "#5eaf30",
-      "--theme-secondary-accent-color": "#bedbb6",
+      "--theme-secondary-accent-color": "#cdebc5",
       "--theme-accent-text-color": "#ffffff",
       "--theme-overlay-color": "#00000080",
       "--theme-selected-color": "#00000030"
@@ -30,7 +30,7 @@
       "--theme-main-background-color": "#222222",
       "--theme-highlight-background-color": "#000000",
       "--theme-accent-color": "#5eaf30",
-      "--theme-secondary-accent-color": "#4b5747",
+      "--theme-secondary-accent-color": "#2b3328",
       "--theme-accent-text-color": "#ffffff",
       "--theme-overlay-color": "#ffffff80",
       "--theme-selected-color": "#ffffff30"
