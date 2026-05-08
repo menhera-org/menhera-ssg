@@ -97,9 +97,9 @@ function compileMarkdown(source: string, path: string) {
 <html lang="${encode(metadata.lang ?? 'en')}">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>${encode(metadata.title)} | ${encode(config.site_config.site_name)}</title>
-<link rel="icon" href="${encode(config.site_config.favicon_url)}">
+<link rel="icon" href="${encode(config.site_config.favicon_url)}" />
 <meta name="robots" content="${(metadata.is404 ?? false) ? 'noindex, nofollow' : 'index, follow'}" />
 <meta property="og:title" content="${encode(metadata.title ?? '')}" />
 <meta property="og:locale" content="${encode(metadata.lang ?? 'en')}" />
@@ -111,6 +111,7 @@ function compileMarkdown(source: string, path: string) {
 <meta property="og:type" content="website" />
 <meta property="og:image" content="${encode(absUrl(metadata.eye_catch_image ?? '', config.site_config.base_url ?? '') || absUrl(config.site_config.branding_logo_url ?? '', config.site_config.base_url ?? ''))}" />
 <meta name="twitter:card" content="summary" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self' https://fonts.googleapis.com; script-src 'self'; worker-src 'self'; manifest-src 'self'; font-src 'self' https://fonts.gstatic.com; img-src 'self'; base-uri 'none';" />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&family=Noto+Sans+JP:wght@100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900">
 <script type="application/json" id="config">
 ${JSON.stringify(config)}
@@ -119,7 +120,7 @@ ${JSON.stringify(config)}
 <body>
 <main id="main" slot="main">
 <h1 id="page-heading">${encode(metadata.title)}</h1>
-${metadata.eye_catch_image ? `<img alt="eyecatch" src="${encode(metadata.eye_catch_image)}">` : ''}
+${metadata.eye_catch_image ? `<img alt="eyecatch" src="${encode(metadata.eye_catch_image)}" />` : ''}
 ${content}
 </main>
 <nav id="nav" slot="nav">
