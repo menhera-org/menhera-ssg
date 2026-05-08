@@ -41,7 +41,7 @@ input, button, textarea, select {
 #app-top-bar {
   grid-row: top-bar-start / top-bar-end;
   grid-column: app-start / app-end;
-  background-color: var(--theme-accent-text-color);
+  background-color: var(--theme-highlight-background-color);
   color: var(--theme-accent-color);
   display: flex;
   align-items: center;
@@ -150,6 +150,16 @@ input, button, textarea, select {
   max-inline-size: 40rem;
   background-color: var(--theme-highlight-background-color);
   padding-inline: .5rem;
+}
+
+#app-main-footer {
+  inline-size: calc(100% - 1rem);
+  box-sizing: border-box;
+  border-radius: 0.5rem;
+  margin: 0.5rem;
+  max-inline-size: 40rem;
+  font-size: 0.8rem;
+  padding-inline: 0.5rem;
 }
 
 #app-drawer {

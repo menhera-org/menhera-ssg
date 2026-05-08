@@ -36,7 +36,7 @@ const footer = DOMPurify.sanitize(micromark(footerMd, {
   htmlExtensions: [gfmHtml(), frontmatterHtml()],
 }));
 
-const ASSETS_DIR = path.resolve('../../assets', import.meta.dirname);
+const ASSETS_DIR = path.resolve(import.meta.dirname, '../../assets');
 const DIST_DIR = './dist';
 
 const assets = globSync(path.join(ASSETS_DIR, '*'), { nodir: true });
@@ -114,6 +114,7 @@ ${nav}
 <div id="footer" slot="footer">
 ${footer}
 </div>
+<script src="/menhera-window.js"></script>
 </body>
 </html>
 `;

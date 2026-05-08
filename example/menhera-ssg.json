@@ -1,0 +1,44 @@
+{
+  "site_config": {
+    "favicon_url": "/icon.png",
+    "branding_logo_url": "/branding.svg",
+    "site_name": "生活情報基盤研究機構 (Menhera)",
+    "site_short_name": "Menhera",
+    "site_slogan": "ひとりひとりに力満ちる未来へ",
+    "base_url": "https://www.menhera.or.jp/"
+  },
+  "css_vars": {
+    "--drawer-width": "20rem"
+  },
+  "themes": {
+    "light": {
+      "--theme-primary-text-color": "#333",
+      "--theme-secondary-text-color": "#666",
+      "--theme-disabled-text-color": "#999",
+      "--theme-main-background-color": "#f5f5f5",
+      "--theme-highlight-background-color": "#ffffff",
+      "--theme-accent-color": "#5eaf30",
+      "--theme-secondary-accent-color": "#bedbb6",
+      "--theme-accent-text-color": "#ffffff",
+      "--theme-overlay-color": "#00000080",
+      "--theme-selected-color": "#00000030"
+    },
+    "dark": {
+      "--theme-primary-text-color": "#ccc",
+      "--theme-secondary-text-color": "#999",
+      "--theme-disabled-text-color": "#666",
+      "--theme-main-background-color": "#222222",
+      "--theme-highlight-background-color": "#000000",
+      "--theme-accent-color": "#5eaf30",
+      "--theme-secondary-accent-color": "#4b5747",
+      "--theme-accent-text-color": "#ffffff",
+      "--theme-overlay-color": "#ffffff80",
+      "--theme-selected-color": "#ffffff30"
+    }
+  },
+  "shortcuts": [
+    {"icon":"business", "title": "CORP", "url":"https://www.menhera.or.jp/"},
+    {"icon":"public", "title": "NOC", "url":"https://www.menhera.ad.jp/"},
+    {"icon":"work", "title": "Projects", "url":"https://www.menhera.org/"}
+  ]
+}
