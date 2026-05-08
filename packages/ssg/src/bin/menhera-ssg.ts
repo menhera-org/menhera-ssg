@@ -107,7 +107,7 @@ function compileMarkdown(source: string, path: string) {
 <meta property="og:url" content="${encode(url)}" />
 <meta property="og:site_name" content="${encode(config.site_config.site_name)}" />
 <meta property="og:type" content="website" />
-<meta property="og:image" content="${encode(absUrl(metadata.eye_catch_image ?? '', config.site_config.base_url ?? '') || absUrl(config.site_config.favicon_url ?? '', config.site_config.base_url ?? ''))}" />
+<meta property="og:image" content="${encode(absUrl(metadata.eye_catch_image ?? '', config.site_config.base_url ?? '') || absUrl(config.site_config.branding_logo_url ?? '', config.site_config.base_url ?? ''))}" />
 <meta name="twitter:card" content="summary" />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&family=Noto+Sans+JP:wght@100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900">
 <script type="application/json" id="config">
@@ -117,6 +117,7 @@ ${JSON.stringify(config)}
 <body>
 <main id="main" slot="main">
 <h1 id="page-heading">${encode(metadata.title)}</h1>
+${metadata.eye_catch_image ? `<img alt="eyecatch" src="${encode(metadata.eye_catch_image)}">` : ''}
 ${content}
 </main>
 <nav id="nav" slot="nav">
