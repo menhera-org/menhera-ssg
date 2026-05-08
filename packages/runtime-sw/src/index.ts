@@ -69,7 +69,7 @@ function isNavigationRequest(request: Request) {
 
 function shouldHandle(request: Request, url: URL) {
   if (request.method !== "GET") return false;
-  if (url.origin !== self.location.origin) return false;
+  //if (url.origin !== self.location.origin) return false;
   if (url.protocol !== "http:" && url.protocol !== "https:") return false;
 
   if (request.headers.has("range")) return false;
