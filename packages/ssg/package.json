@@ -21,6 +21,15 @@
   "scripts": {
     "build": "tsc"
   },
+  "files": [
+    "dist",
+    "assets",
+    "README.md",
+    "LICENSE",
+    "src",
+    "package.json",
+    "tsconfig.json"
+  ],
   "devDependencies": {
     "@types/jsdom": "^28.0.1",
     "@types/node": "^25",
