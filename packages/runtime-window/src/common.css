@@ -41,5 +41,5 @@ blockquote {
 }
 
 code, pre {
-  font: ui-monospace, monospace;
+  font-family: ui-monospace, monospace;
 }
