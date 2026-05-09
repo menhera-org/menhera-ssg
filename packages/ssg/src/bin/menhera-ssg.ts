@@ -75,7 +75,7 @@ for (const asset of assets) {
 
 const mdFiles = globSync('./src/**/*.md', { nodir: true });
 
-const absUrl = (url: string, base: string) => (new URL(config.site_config.favicon_url ?? '', config.site_config.base_url)).href;
+const absUrl = (url: string, base: string) => (new URL(url, base)).href;
 
 function compileMarkdown(source: string, path: string) {
   const tree = fromMarkdown(source, {
