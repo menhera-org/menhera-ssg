@@ -1,6 +1,6 @@
 {
   "name": "@menhera/ssg",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Static site generator (SSG) with batteries included",
   "type": "module",
   "private": false,

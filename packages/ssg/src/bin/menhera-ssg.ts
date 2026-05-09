@@ -28,6 +28,7 @@ const navMd = fs.readFileSync(NAV_PATH, 'utf-8');
 const nav = DOMPurify.sanitize(micromark(navMd, {
   extensions: [gfm(), frontmatter()],
   htmlExtensions: [gfmHtml(), frontmatterHtml()],
+  allowDangerousHtml: true,
 }));
 
 const FOOTER_PATH = './menhera-ssg.footer.md';
@@ -36,6 +37,7 @@ const footerMd = fs.readFileSync(FOOTER_PATH, 'utf-8');
 const footer = DOMPurify.sanitize(micromark(footerMd, {
   extensions: [gfm(), frontmatter()],
   htmlExtensions: [gfmHtml(), frontmatterHtml()],
+  allowDangerousHtml: true,
 }));
 
 const ASSETS_DIR = path.resolve(import.meta.dirname, '../../assets');
@@ -88,6 +90,7 @@ function compileMarkdown(source: string, path: string) {
   const content = DOMPurify.sanitize(micromark(source, {
     extensions: [gfm(), frontmatter()],
     htmlExtensions: [gfmHtml(), frontmatterHtml()],
+    allowDangerousHtml: true,
   }));
 
   const url = absUrl(path, config.site_config.base_url ?? '');
