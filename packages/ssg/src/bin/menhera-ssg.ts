@@ -93,7 +93,7 @@ function compileMarkdown(source: string, path: string) {
     allowDangerousHtml: true,
   }));
 
-  const url = absUrl(path, config.site_config.base_url ?? '');
+  const url = absUrl(path, config.site_config.base_url ?? '').replace(/\/index\.html$/, '/');
 
   const html = `
 <!DOCTYPE html>
