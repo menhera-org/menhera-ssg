@@ -38,12 +38,15 @@ self.addEventListener("install", (event) => {
 self.addEventListener("activate", (event) => {
   event.waitUntil((async () => {
     const keys = await caches.keys();
-    await Promise.all(
-      keys
-        .filter((key) => key !== CACHE_NAME && key !== PRECACHE_NAME)
-        .map((key) => caches.delete(key))
-    );
-    await self.clients.claim();
+    try {
+      await Promise.all(
+        keys
+          .filter((key) => key !== CACHE_NAME && key !== PRECACHE_NAME)
+          .map((key) => caches.delete(key))
+      );
+    } finally {
+      await self.clients.claim();
+    }
   })());
 });
 

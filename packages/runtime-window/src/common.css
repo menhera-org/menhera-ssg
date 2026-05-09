@@ -39,3 +39,7 @@ blockquote {
   margin-inline: .5em;
   border-inline-start: solid .125rem var(--theme-accent-color);
 }
+
+code, pre {
+  font: ui-monospace, monospace;
+}
