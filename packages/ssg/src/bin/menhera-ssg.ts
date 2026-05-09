@@ -115,7 +115,7 @@ function compileMarkdown(source: string, path: string) {
 <meta property="og:image" content="${encode(absUrl(metadata.eye_catch_image ?? '', config.site_config.base_url ?? '') || absUrl(config.site_config.branding_logo_url ?? '', config.site_config.base_url ?? ''))}" />
 <meta name="twitter:card" content="summary" />
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self' https://fonts.googleapis.com; script-src 'self'; worker-src 'self'; manifest-src 'self'; font-src 'self' https://fonts.gstatic.com; img-src 'self'; base-uri 'none';" />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&family=Noto+Sans+JP:wght@100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900">
+<link rel="stylesheet" crossorigin="anonymous" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&family=Noto+Sans+JP:wght@100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900" />
 <script type="application/json" id="config">
 ${JSON.stringify(config)}
 </script>

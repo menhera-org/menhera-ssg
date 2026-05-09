@@ -17,3 +17,25 @@ hr {
   'opsz' 24;
   text-orientation: upright;
 }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  max-inline-size: 100%;
+  box-sizing: border-box;
+}
+
+table :is(td, th) {
+  border: solid .125rem var(--theme-disabled-text-color);
+  padding-inline: .5em;
+  padding-block: .25em;
+  overflow-inline: auto;
+  overflow-wrap: break-word;
+}
+
+blockquote {
+  padding-inline: 1em;
+  padding-block: .25em;
+  margin-inline: .5em;
+  border-inline-start: solid .125rem var(--theme-accent-color);
+}
