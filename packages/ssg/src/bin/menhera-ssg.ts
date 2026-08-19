@@ -77,6 +77,16 @@ const mdFiles = globSync('./src/**/*.md', { nodir: true });
 
 const absUrl = (url: string, base: string) => (new URL(url, base)).href;
 
+const xmlEscape = (text: string) => text
+  .replace(/&/g, '&amp;')
+  .replace(/</g, '&lt;')
+  .replace(/>/g, '&gt;')
+  .replace(/"/g, '&quot;')
+  .replace(/'/g, '&apos;');
+
+const SITEMAP_PATH = '/sitemap.xml';
+const ROBOTS_PATH = '/robots.txt';
+
 function compileMarkdown(source: string, path: string) {
   const tree = fromMarkdown(source, {
     extensions: [frontmatter(['yaml'])],
@@ -111,6 +121,7 @@ function compileMarkdown(source: string, path: string) {
 <meta name="description" content="${encode(metadata.description)}" />
 <meta property="og:description" content="${encode(metadata.description)}" />
 <link rel="canonical" href="${encode(url)}" />
+<link rel="sitemap" type="application/xml" title="Sitemap" href="${encode(SITEMAP_PATH)}" />
 <meta property="og:url" content="${encode(url)}" />
 <meta property="og:site_name" content="${encode(config.site_config.site_name)}" />
 <meta property="og:type" content="website" />
@@ -138,14 +149,46 @@ ${footer}
 </body>
 </html>
 `;
-  return html.trimStart();
+  return { html: html.trimStart(), url, indexable: !(metadata.is404 ?? false) };
 }
+
+const sitemapUrls = new Set<string>();
 
 for (const file of mdFiles) {
   const relativePath = path.relative('./src', file).replace(/\.md$/i, '.html');
   const destPath = path.join(DIST_DIR, relativePath);
   fs.mkdirSync(path.dirname(destPath), { recursive: true });
-  const html = compileMarkdown(fs.readFileSync(file, 'utf-8'), relativePath);
+  const { html, url, indexable } = compileMarkdown(fs.readFileSync(file, 'utf-8'), relativePath);
   fs.writeFileSync(destPath, html);
+  console.log('written: ', destPath);
+  if (indexable) {
+    sitemapUrls.add(url);
+  }
+}
+
+if (fs.existsSync(path.join('./public', SITEMAP_PATH))) {
+  console.log('skipped (provided by ./public): ', path.join(DIST_DIR, SITEMAP_PATH));
+} else {
+  const urls = [...sitemapUrls].sort();
+  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${urls.map((url) => `<url><loc>${xmlEscape(url)}</loc></url>`).join('\n')}
+</urlset>
+`;
+  const destPath = path.join(DIST_DIR, SITEMAP_PATH);
+  fs.writeFileSync(destPath, sitemap);
+  console.log('written: ', destPath, `(${urls.length} URLs)`);
+}
+
+if (fs.existsSync(path.join('./public', ROBOTS_PATH))) {
+  console.log('skipped (provided by ./public): ', path.join(DIST_DIR, ROBOTS_PATH));
+} else {
+  const robots = `User-agent: *
+Allow: /
+
+Sitemap: ${absUrl(SITEMAP_PATH, config.site_config.base_url ?? '')}
+`;
+  const destPath = path.join(DIST_DIR, ROBOTS_PATH);
+  fs.writeFileSync(destPath, robots);
   console.log('written: ', destPath);
 }
