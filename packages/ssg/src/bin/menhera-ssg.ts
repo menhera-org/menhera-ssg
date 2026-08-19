@@ -95,7 +95,7 @@ function compileMarkdown(source: string, path: string) {
 
   const url = absUrl(path, config.site_config.base_url ?? '').replace(/\/index\.html$/, '/');
 
-  const jsonLd = null != config.json_ld ? `<script type="application/ld+json">${JSON.stringify(config.json_ld)}</script>\n` : '';
+  const jsonLd = null != config.json_ld ? `<script type="application/ld+json">${JSON.stringify(config.json_ld).replace(/</g, '\\u003C')}</script>\n` : '';
 
   const html = `
 <!DOCTYPE html>
