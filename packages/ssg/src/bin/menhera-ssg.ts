@@ -95,6 +95,8 @@ function compileMarkdown(source: string, path: string) {
 
   const url = absUrl(path, config.site_config.base_url ?? '').replace(/\/index\.html$/, '/');
 
+  const jsonLd = null != config.json_ld ? `<script type="application/ld+json">${JSON.stringify(config.json_ld)}</script>\n` : '';
+
   const html = `
 <!DOCTYPE html>
 <html lang="${encode(metadata.lang ?? 'en')}">
@@ -116,7 +118,7 @@ function compileMarkdown(source: string, path: string) {
 <meta name="twitter:card" content="summary" />
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self' https://fonts.googleapis.com; script-src 'self'; worker-src 'self'; manifest-src 'self'; font-src 'self' https://fonts.gstatic.com; img-src 'self'; base-uri 'none';" />
 <link rel="stylesheet" crossorigin="anonymous" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&family=Noto+Sans+JP:wght@100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900" />
-<script type="application/json" id="config">
+${jsonLd}<script type="application/json" id="config">
 ${JSON.stringify(config)}
 </script>
 </head>

@@ -35,4 +35,5 @@ export interface Config {
   css_vars: CssVars;
   themes: Record<string, CssVars>;
   shortcuts: SiteShortcut[];
+  json_ld?: Record<string, unknown>,
 }
